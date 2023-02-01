@@ -23,7 +23,8 @@ pushd "src/${module}"
     make build
     mkdir -p "${PREFIX}/bin"
     cp "bin/${PKG_NAME}" "${PREFIX}/bin"
-    go-licenses save ./cmd/glab --save_path "${SRC_DIR}/license-files"
+    go-licenses save ./cmd/glab --save_path "${SRC_DIR}/license-files" \
+        --ignore=golang.org/x/sys/unix
 popd
 
 mkdir -p "${PREFIX}/share/bash-completion/completions"
