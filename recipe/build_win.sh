@@ -5,7 +5,7 @@ module="gitlab.com/gitlab-org/cli"
 
 export GOPATH="$( pwd )"
 export GOROOT="${BUILD_PREFIX}/go"
-export GOOS=windows 
+export GOOS=windows
 export GOARCH=amd64
 export CGO_ENABLED=1
 
@@ -19,7 +19,7 @@ pushd "src/${module}"
     cp "bin/glab" "${PREFIX}/bin/glab.exe"
 
     # the --ignores are all stdlib, found for some reason
-    go-licenses save ./cmd/glab --save_path "${SRC_DIR}/license-files" \--ignore=archive/zip \
+    go-licenses save ./cmd/glab --save_path "${SRC_DIR}/license-files" \
         --ignore=archive/zip \
         --ignore=bufio \
         --ignore=bytes \
