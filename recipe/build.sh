@@ -20,7 +20,6 @@ export CGO_LDFLAGS="${LDFLAGS}"
 export GLAB_VERSION="${PKG_VERSION}"
 
 pushd "src/${module}"
-    make install
     make build
     mkdir -p "${PREFIX}/bin"
     cp "bin/${PKG_NAME}" "${PREFIX}/bin"
