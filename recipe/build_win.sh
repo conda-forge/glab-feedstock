@@ -111,6 +111,7 @@ pushd "src/${module}"
         --ignore=sync \
         --ignore=sync/atomic \
         --ignore=syscall \
+        --ignore=text/tabwriter \
         --ignore=text/template \
         --ignore=time \
         --ignore=unicode \
