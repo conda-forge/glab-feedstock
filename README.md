@@ -1,11 +1,11 @@
-About glab
-==========
+About glab-feedstock
+====================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/glab-feedstock/blob/main/LICENSE.txt)
 
 Home: https://gitlab.com/gitlab-org/cli
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/glab-feedstock/blob/main/LICENSE.txt)
 
 Summary: A GitLab CLI tool bringing GitLab to your command line
 
