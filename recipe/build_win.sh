@@ -63,9 +63,11 @@ pushd "src/${module}"
         --ignore=hash \
         --ignore=html \
         --ignore=html/template \
+        --ignore=image \
         --ignore=image/color \
         --ignore=internal/abi \
         --ignore=internal/bytealg \
+        --ignore=internal/coverage/rtcov \
         --ignore=internal/cpu \
         --ignore=internal/fmtsort \
         --ignore=internal/goarch \
@@ -79,6 +81,7 @@ pushd "src/${module}"
         --ignore=internal/poll \
         --ignore=internal/race \
         --ignore=internal/reflectlite \
+        --ignore=internal/safefilepath \
         --ignore=internal/singleflight \
         --ignore=internal/syscall/execenv \
         --ignore=internal/syscall/windows \
@@ -123,6 +126,7 @@ pushd "src/${module}"
         --ignore=vendor/golang.org/x/crypto/cryptobyte/asn1 \
         --ignore=vendor/golang.org/x/crypto/curve25519 \
         --ignore=vendor/golang.org/x/crypto/hkdf \
+        --ignore=vendor/golang.org/x/crypto/internal/alias \
         --ignore=vendor/golang.org/x/crypto/internal/poly1305 \
         --ignore=vendor/golang.org/x/crypto/internal/subtle \
         --ignore=vendor/golang.org/x/net/dns/dnsmessage \
@@ -134,7 +138,8 @@ pushd "src/${module}"
         --ignore=vendor/golang.org/x/text/secure/bidirule \
         --ignore=vendor/golang.org/x/text/transform \
         --ignore=vendor/golang.org/x/text/unicode/bidi \
-        --ignore=vendor/golang.org/x/text/unicode/norm
+        --ignore=vendor/golang.org/x/text/unicode/norm \
+    && echo OK
 
 popd
 
