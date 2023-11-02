@@ -61,8 +61,11 @@ pushd "src/${module}"
         --ignore=flag \
         --ignore=fmt \
         --ignore=go/ast \
+        --ignore=go/build/constraint \
         --ignore=go/doc \
+        --ignore=go/internal/typeparams \
         --ignore=go/parser \
+        --ignore=go/scanner \
         --ignore=go/token \
         --ignore=hash \
         --ignore=html \
@@ -81,6 +84,7 @@ pushd "src/${module}"
         --ignore=internal/goos \
         --ignore=internal/intern \
         --ignore=internal/itoa \
+        --ignore=internal/lazyregexp \
         --ignore=internal/nettrace \
         --ignore=internal/oserror \
         --ignore=internal/poll \
