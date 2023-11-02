@@ -60,12 +60,17 @@ pushd "src/${module}"
         --ignore=errors \
         --ignore=flag \
         --ignore=fmt \
+        --ignore=go/ast \
+        --ignore=go/doc \
+        --ignore=go/parser \
+        --ignore=go/token \
         --ignore=hash \
         --ignore=html \
         --ignore=html/template \
         --ignore=image \
         --ignore=image/color \
         --ignore=internal/abi \
+        --ignore=internal/bisect \
         --ignore=internal/bytealg \
         --ignore=internal/coverage/rtcov \
         --ignore=internal/cpu \
