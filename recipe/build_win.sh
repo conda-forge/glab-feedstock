@@ -25,6 +25,7 @@ pushd "src/${module}"
         --ignore=bytes \
         --ignore=compress/flate \
         --ignore=compress/gzip \
+        --ignore=container/heap \
         --ignore=container/list \
         --ignore=context \
         --ignore=crypto \
