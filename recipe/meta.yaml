@@ -18,6 +18,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ compiler('go-cgo') }}
+    - {{ stdlib("c") }}
     - make  # [not win]
     - m2-make  # [win]
     - posix  # [win]
