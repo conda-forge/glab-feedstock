@@ -29,7 +29,8 @@ requirements:
 test:
   commands:
     - glab --version
-    - glab --help
+    # tries to write to home in windows
+    - glab --help   # [unix]
 
 about:
   home: https://{{ gomodule }}
