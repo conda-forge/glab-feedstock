@@ -100,6 +100,7 @@ pushd "src/${module}"
         --ignore=internal/syscall/windows \
         --ignore=internal/syscall/windows/registry \
         --ignore=internal/syscall/windows/sysdll \
+        --ignore=internal/sysinfo \
         --ignore=internal/testlog \
         --ignore=internal/unsafeheader \
         --ignore=io \
