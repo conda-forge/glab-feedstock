@@ -1,4 +1,4 @@
-{% set version = "1.36.0" %}
+{% set version = "1.43.0" %}
 {% set gomodule = "gitlab.com/gitlab-org/cli" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 source:
   folder: src/{{ gomodule }}
   url: https://{{ gomodule }}/-/archive/v{{ version }}/cli-v{{ version }}.tar.gz
-  sha256: 8d6c759ebfe9c6942fcdb7055a4a5c7209a3b22beb25947f906c9aef3bc067e8
+  sha256: 0d3a8cb750826ed4392d7c1b681dbc280f43fbda01c7f5ac566e9a1eeb669f55
 
 build:
   number: 0
@@ -18,6 +18,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ compiler('go-cgo') }}
+    - {{ stdlib("c") }}
     - make  # [not win]
     - m2-make  # [win]
     - posix  # [win]
@@ -28,7 +29,8 @@ requirements:
 test:
   commands:
     - glab --version
-    - glab --help
+    # tries to write to home in windows
+    - glab --help   # [unix]
 
 about:
   home: https://{{ gomodule }}

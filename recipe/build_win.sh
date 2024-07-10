@@ -23,6 +23,7 @@ pushd "src/${module}"
         --ignore=archive/zip \
         --ignore=bufio \
         --ignore=bytes \
+        --ignore=cmp \
         --ignore=compress/flate \
         --ignore=compress/gzip \
         --ignore=container/heap \
@@ -61,6 +62,7 @@ pushd "src/${module}"
         --ignore=errors \
         --ignore=flag \
         --ignore=fmt \
+        --ignore=github.com/modern-go/reflect2 \
         --ignore=go/ast \
         --ignore=go/build/constraint \
         --ignore=go/doc \
@@ -76,6 +78,7 @@ pushd "src/${module}"
         --ignore=internal/abi \
         --ignore=internal/bisect \
         --ignore=internal/bytealg \
+        --ignore=internal/chacha8rand \
         --ignore=internal/coverage/rtcov \
         --ignore=internal/cpu \
         --ignore=internal/fmtsort \
@@ -97,6 +100,7 @@ pushd "src/${module}"
         --ignore=internal/syscall/windows \
         --ignore=internal/syscall/windows/registry \
         --ignore=internal/syscall/windows/sysdll \
+        --ignore=internal/sysinfo \
         --ignore=internal/testlog \
         --ignore=internal/unsafeheader \
         --ignore=io \
@@ -118,12 +122,14 @@ pushd "src/${module}"
         --ignore=regexp \
         --ignore=runtime \
         --ignore=runtime/debug \
+        --ignore=slice \
         --ignore=sort \
         --ignore=strconv \
         --ignore=strings \
         --ignore=sync \
         --ignore=sync/atomic \
         --ignore=syscall \
+        --ignore=testing \
         --ignore=text/tabwriter \
         --ignore=text/template \
         --ignore=time \
@@ -154,13 +160,13 @@ pushd "src/${module}"
 popd
 
 mkdir -p "${PREFIX}/share/bash-completion/completions"
-"${PREFIX}/bin/${PKG_NAME}" completion -s bash > "$PREFIX/share/bash-completion/completions/glab"
+"${PREFIX}/bin/${PKG_NAME}" completion -s bash > "$PREFIX/share/bash-completion/completions/glab"       || echo "ignoring"
 
 mkdir -p "${PREFIX}/share/fish/vendor_completions.d"
-"${PREFIX}/bin/${PKG_NAME}" completion -s fish > "$PREFIX/share/fish/vendor_completions.d/glab.fish"
+"${PREFIX}/bin/${PKG_NAME}" completion -s fish > "$PREFIX/share/fish/vendor_completions.d/glab.fish"    || echo "ignoring"
 
 mkdir -p "${PREFIX}/share/zsh/site-functions"
-"${PREFIX}/bin/${PKG_NAME}" completion -s zsh > "$PREFIX/share/zsh/site-functions/_glab"
+"${PREFIX}/bin/${PKG_NAME}" completion -s zsh > "$PREFIX/share/zsh/site-functions/_glab"                || echo "ignoring"
 
 # Make GOPATH directories writeable so conda-build can clean everything up.
 find "$( go env GOPATH )" -type d -exec chmod +w {} \;
