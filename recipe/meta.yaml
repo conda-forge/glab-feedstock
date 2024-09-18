@@ -1,4 +1,4 @@
-{% set version = "1.45.0" %}
+{% set version = "1.46.1" %}
 {% set gomodule = "gitlab.com/gitlab-org/cli" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 source:
   folder: src/{{ gomodule }}
   url: https://{{ gomodule }}/-/archive/v{{ version }}/cli-v{{ version }}.tar.gz
-  sha256: 3cb222f196bb995b87c938e2ac0d496a343515af1530eebff228e630fa243ca9
+  sha256: 935f732ddacc6e54fc83d06351fc25454ac8a58c465c3efa43e066ea226257c2
 
 build:
   number: 0
