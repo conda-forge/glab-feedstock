@@ -40,7 +40,7 @@ about:
     - src/{{ gomodule }}/LICENSE
     - license-files/
   summary: A GitLab CLI tool bringing GitLab to your command line
-  doc_url: https://docs.gitlab.com/ee/integration/glab
+  doc_url: https://docs.gitlab.com/ee/editor_extensions/gitlab_cli/
   description: |-
     GLab is an open source GitLab CLI tool bringing GitLab to your terminal next
     to where you are already working with git and your code without switching
