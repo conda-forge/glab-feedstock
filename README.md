@@ -9,7 +9,7 @@ Package license: MIT
 
 Summary: A GitLab CLI tool bringing GitLab to your command line
 
-Documentation: https://docs.gitlab.com/ee/editor_extensions/gitlab_cli/
+Documentation: https://docs.gitlab.com/ee/editor_extensions/gitlab_cli
 
 GLab is an open source GitLab CLI tool bringing GitLab to your terminal next
 to where you are already working with git and your code without switching
