@@ -183,4 +183,4 @@ mkdir -p "${PREFIX}/share/zsh/site-functions"
 "${PREFIX}/bin/${PKG_NAME}" completion -s zsh > "$PREFIX/share/zsh/site-functions/_glab"                || echo "ignoring"
 
 # Make GOPATH directories writeable so conda-build can clean everything up.
-find "$( go env GOPATH )" -type d -exec chmod +w {} \;
+chmod -R +w $( go env GOPATH )
