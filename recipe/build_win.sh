@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
-set -eux
+set -eux -o pipefail
 
 module="gitlab.com/gitlab-org/cli"
 
-export GOPATH="$( pwd )"
+GOPATH="$( pwd )"
+export GOPATH
 export GOROOT="${BUILD_PREFIX}/go"
 export GOOS=windows
 export GOARCH=amd64
@@ -174,13 +175,15 @@ pushd "src/${module}"
 popd
 
 mkdir -p "${PREFIX}/share/bash-completion/completions"
-"${PREFIX}/bin/${PKG_NAME}" completion -s bash > "$PREFIX/share/bash-completion/completions/glab"       || echo "ignoring"
+"${PREFIX}/bin/${PKG_NAME}" completion -s bash > "${PREFIX}/share/bash-completion/completions/glab"       || echo "ignoring"
 
 mkdir -p "${PREFIX}/share/fish/vendor_completions.d"
-"${PREFIX}/bin/${PKG_NAME}" completion -s fish > "$PREFIX/share/fish/vendor_completions.d/glab.fish"    || echo "ignoring"
+"${PREFIX}/bin/${PKG_NAME}" completion -s fish > "${PREFIX}/share/fish/vendor_completions.d/glab.fish"    || echo "ignoring"
 
 mkdir -p "${PREFIX}/share/zsh/site-functions"
-"${PREFIX}/bin/${PKG_NAME}" completion -s zsh > "$PREFIX/share/zsh/site-functions/_glab"                || echo "ignoring"
+"${PREFIX}/bin/${PKG_NAME}" completion -s zsh > "${PREFIX}/share/zsh/site-functions/_glab"                || echo "ignoring"
 
 # Make GOPATH directories writeable so conda-build can clean everything up.
-chmod -R +w $( go env GOPATH )
+CLEAN_GO_PATH=$( go env GOPATH )
+export CLEAN_GO_PATH
+find "${CLEAN_GO_PATH}" -type d -exec chmod +w {} \;
