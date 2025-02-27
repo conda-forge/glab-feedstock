@@ -12,6 +12,8 @@ export CGO_ENABLED=1
 
 export GLAB_VERSION="${PKG_VERSION}"
 
+ps a
+
 mkdir -p "${PREFIX}/bin"
 
 pushd "src/${module}"
@@ -189,4 +191,4 @@ export CLEAN_GO_PATH
 find "${CLEAN_GO_PATH}" -type d -exec chmod +w {} \;
 rm -rf "${CLEAN_GO_PATH}/go"
 
-ps -aux
+ps a
