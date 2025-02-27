@@ -187,4 +187,4 @@ mkdir -p "${PREFIX}/share/zsh/site-functions"
 CLEAN_GO_PATH=$( go env GOPATH )
 export CLEAN_GO_PATH
 find "${CLEAN_GO_PATH}" -type d -exec chmod +w {} \;
-rm -rf "${CLEAN_GO_PATH}"
+rm -rf "${CLEAN_GO_PATH}/go"
