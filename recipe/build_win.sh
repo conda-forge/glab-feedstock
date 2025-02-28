@@ -9,6 +9,7 @@ export GOROOT="${BUILD_PREFIX}/go"
 export GOOS=windows
 export GOARCH=amd64
 export CGO_ENABLED=1
+export GOFLAGS="-buildmode=pie -trimpath -modcacherw -ldflags=-linkmode=external"
 
 export GLAB_VERSION="${PKG_VERSION}"
 
@@ -71,6 +72,8 @@ pushd "src/${module}"
         --ignore=go/parser \
         --ignore=go/scanner \
         --ignore=go/token \
+        --ignore=golang.org/x/crypto/sha3 \
+        --ignore=golang.org/x/sys/cpu \
         --ignore=hash \
         --ignore=html \
         --ignore=html/template \
@@ -182,8 +185,3 @@ mkdir -p "${PREFIX}/share/fish/vendor_completions.d"
 
 mkdir -p "${PREFIX}/share/zsh/site-functions"
 "${PREFIX}/bin/${PKG_NAME}" completion -s zsh > "${PREFIX}/share/zsh/site-functions/_glab"                || echo "ignoring"
-
-# Make GOPATH directories writeable so conda-build can clean everything up.
-CLEAN_GO_PATH=$( go env GOPATH )
-export CLEAN_GO_PATH
-find "${CLEAN_GO_PATH}" -type d -exec chmod +w {} \;
