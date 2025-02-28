@@ -9,7 +9,7 @@ export GOROOT="${BUILD_PREFIX}/go"
 export GOOS=windows
 export GOARCH=amd64
 export CGO_ENABLED=1
-export GOFLAGS="-buildmode=pie -trimpath -mod=vendor -modcacherw -ldflags=-linkmode=external"
+export GOFLAGS="-buildmode=pie -trimpath -modcacherw -ldflags=-linkmode=external"
 
 export GLAB_VERSION="${PKG_VERSION}"
 
