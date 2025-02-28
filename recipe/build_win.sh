@@ -12,8 +12,6 @@ export CGO_ENABLED=1
 
 export GLAB_VERSION="${PKG_VERSION}"
 
-ps a
-
 mkdir -p "${PREFIX}/bin"
 
 pushd "src/${module}"
@@ -73,6 +71,8 @@ pushd "src/${module}"
         --ignore=go/parser \
         --ignore=go/scanner \
         --ignore=go/token \
+        --ignore=golang.org/x/crypto/sha3 \
+        --ignore=golang.org/x/sys/cpu \
         --ignore=hash \
         --ignore=html \
         --ignore=html/template \
@@ -189,6 +189,3 @@ mkdir -p "${PREFIX}/share/zsh/site-functions"
 CLEAN_GO_PATH=$( go env GOPATH )
 export CLEAN_GO_PATH
 find "${CLEAN_GO_PATH}" -type d -exec chmod +w {} \;
-rm -rf "${CLEAN_GO_PATH}/go"
-
-ps a
