@@ -9,6 +9,7 @@ export GOROOT="${BUILD_PREFIX}/go"
 export GOOS=windows
 export GOARCH=amd64
 export CGO_ENABLED=1
+export GOFLAGS="-buildmode=pie -trimpath -mod=vendor -modcacherw -ldflags=-linkmode=external"
 
 export GLAB_VERSION="${PKG_VERSION}"
 
@@ -184,8 +185,3 @@ mkdir -p "${PREFIX}/share/fish/vendor_completions.d"
 
 mkdir -p "${PREFIX}/share/zsh/site-functions"
 "${PREFIX}/bin/${PKG_NAME}" completion -s zsh > "${PREFIX}/share/zsh/site-functions/_glab"                || echo "ignoring"
-
-# try to clean now to fail after packaging
-CLEAN_GO_PATH=$( go env GOPATH )
-export CLEAN_GO_PATH
-find "${CLEAN_GO_PATH}" -type d -exec chmod +w {} \;
