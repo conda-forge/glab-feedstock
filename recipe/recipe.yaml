@@ -23,20 +23,16 @@ requirements:
     - ${{ compiler("c") }}
     - ${{ compiler("cxx") }}
     - ${{ compiler("go-cgo") }}
-    - ${{ stdlib("c") }}
     - go-licenses
-    - if: win
+    - make
+    - if: target_goexe != ".exe"
       then:
-        - m2-make
-        - posix
-      else:
-        - make
+        - ${{ stdlib("c") }}
 
 tests:
   - script:
-      - glab --version
-      - if: unix
-        then: glab --help
+      - glab{{ target_goexe }} --version
+      - glab{{ target_goexe }} --help
 
 about:
   homepage: https://gitlab.com/gitlab-org/cli
