@@ -17,12 +17,11 @@ export CGO_CPPFLAGS="${CPPFLAGS}"
 export CGO_CXXFLAGS="${CXXFLAGS}"
 export CGO_LDFLAGS="${LDFLAGS}"
 
-export GLAB_VERSION="${PKG_VERSION}"
-
 pushd "src/${module}"
-    make build
-    mkdir -p "${PREFIX}/bin"
-    cp "bin/${PKG_NAME}" "${PREFIX}/bin"
+    go build \
+        -ldflags "-X main.version=${PKG_VERSION} -X main.debugMode=false -w -s" \
+        -o "${PREFIX}/bin/glab" \
+        ./cmd/glab
     go-licenses save ./cmd/glab --save_path "${SRC_DIR}/license-files" \
         --ignore=golang.org/x/sys/unix
 popd

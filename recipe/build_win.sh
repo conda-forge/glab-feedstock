@@ -11,14 +11,11 @@ export GOARCH=amd64
 export CGO_ENABLED=1
 export GOFLAGS="-buildmode=pie -trimpath -modcacherw -ldflags=-linkmode=external"
 
-export GLAB_VERSION="${PKG_VERSION}"
-
-mkdir -p "${PREFIX}/bin"
-
 pushd "src/${module}"
-    make install
-    make build
-    cp "bin/glab" "${PREFIX}/bin/glab.exe"
+    go build \
+        -ldflags "-X main.version=${PKG_VERSION} -X main.debugMode=false -w -s" \
+        -o "${PREFIX}/bin/glab.exe" \
+        ./cmd/glab
 
     # the --ignores are all stdlib, found for some reason
     go-licenses save ./cmd/glab --save_path "${SRC_DIR}/license-files" \
