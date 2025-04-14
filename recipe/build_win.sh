@@ -11,13 +11,11 @@ export GOARCH=amd64
 export CGO_ENABLED=1
 export GOFLAGS="-buildmode=pie -trimpath -modcacherw -ldflags=-linkmode=external"
 
-export GLAB_VERSION="${PKG_VERSION}"
-
-mkdir -p "${PREFIX}/bin"
-
 pushd "src/${module}"
-    make install
-    make build
+    go build "${GOFLAGS}" \
+        "-X main.version=${PKG_VERSION} -X main.debugMode=false -w -s" \
+        -o "${PREFIX}/bin/glab" \
+        gitlab.com/gitlab-org/cli/cmd/glab
     cp "bin/glab" "${PREFIX}/bin/glab.exe"
 
     # the --ignores are all stdlib, found for some reason
