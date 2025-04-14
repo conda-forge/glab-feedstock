@@ -12,7 +12,7 @@ export CGO_ENABLED=1
 export GOFLAGS="-buildmode=pie -trimpath -modcacherw -ldflags=-linkmode=external"
 
 pushd "src/${module}"
-    go build "${GOFLAGS}" \
+    go build \
         -ldflags "-X main.version=${PKG_VERSION} -X main.debugMode=false -w -s" \
         -o "${PREFIX}/bin/glab" \
         ./cmd/glab
