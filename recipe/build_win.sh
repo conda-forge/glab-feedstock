@@ -14,7 +14,7 @@ export GOFLAGS="-buildmode=pie -trimpath -modcacherw -ldflags=-linkmode=external
 pushd "src/${module}"
     go build \
         -ldflags "-X main.version=${PKG_VERSION} -X main.debugMode=false -w -s" \
-        -o "${PREFIX}/bin/glab" \
+        -o "${PREFIX}/bin/glab.exe" \
         ./cmd/glab
 
     # the --ignores are all stdlib, found for some reason
