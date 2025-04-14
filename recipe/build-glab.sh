@@ -19,9 +19,9 @@ export CGO_LDFLAGS="${LDFLAGS}"
 
 pushd "src/${module}"
     go build "${GOFLAGS}" \
-        "-X main.version=${PKG_VERSION} -X main.debugMode=false -w -s" \
+        -ldflags "-X main.version=${PKG_VERSION} -X main.debugMode=false -w -s" \
         -o "${PREFIX}/bin/glab" \
-        gitlab.com/gitlab-org/cli/cmd/glab
+        ./cmd/glab
     go-licenses save ./cmd/glab --save_path "${SRC_DIR}/license-files" \
         --ignore=golang.org/x/sys/unix
 popd
