@@ -25,6 +25,7 @@ pushd "src/${module}"
         --ignore=cmp \
         --ignore=compress/flate \
         --ignore=compress/gzip \
+        --ignore=compress/zlib \
         --ignore=container/heap \
         --ignore=container/list \
         --ignore=context \
@@ -61,6 +62,8 @@ pushd "src/${module}"
         --ignore=errors \
         --ignore=flag \
         --ignore=fmt \
+        --ignore=github.com/golang/freetype/raster \
+        --ignore=github.com/golang/freetype/truetype \
         --ignore=github.com/modern-go/reflect2 \
         --ignore=go/ast \
         --ignore=go/build/constraint \
@@ -103,9 +106,13 @@ pushd "src/${module}"
         --ignore=internal/reflectlite \
         --ignore=internal/runtime/atomic \
         --ignore=internal/runtime/exithook \
+        --ignore=internal/runtime/maps \
+        --ignore=internal/runtime/math \
+        --ignore=internal/runtime/sys \
         --ignore=internal/safefilepath \
         --ignore=internal/singleflight \
         --ignore=internal/stringslite \
+        --ignore=internal/sync \
         --ignore=internal/syscall/execenv \
         --ignore=internal/syscall/windows \
         --ignore=internal/syscall/windows/registry \
@@ -170,6 +177,7 @@ pushd "src/${module}"
         --ignore=vendor/golang.org/x/text/transform \
         --ignore=vendor/golang.org/x/text/unicode/bidi \
         --ignore=vendor/golang.org/x/text/unicode/norm \
+        --ignore=weak \
     && echo OK
 
 popd

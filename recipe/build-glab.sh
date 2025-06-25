@@ -23,7 +23,10 @@ pushd "src/${module}"
         -o "${PREFIX}/bin/glab" \
         ./cmd/glab
     go-licenses save ./cmd/glab --save_path "${SRC_DIR}/license-files" \
-        --ignore=golang.org/x/sys/unix
+        --ignore=github.com/golang/freetype/raster \
+        --ignore=github.com/golang/freetype/truetype \
+        --ignore=golang.org/x/sys/unix \
+    && echo OK
 popd
 
 if [[ "${build_platform}" == "${target_platform}" ]]; then
