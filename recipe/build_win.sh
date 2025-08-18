@@ -12,6 +12,7 @@ export CGO_ENABLED=1
 export GOFLAGS="-buildmode=pie -trimpath -modcacherw -ldflags=-linkmode=external"
 
 pushd "src/${module}"
+    bash "${RECIPE_DIR}/check-go-version.sh" || exit 2
     go build \
         -ldflags "-X main.version=${PKG_VERSION} -X main.debugMode=false -w -s" \
         -o "${PREFIX}/bin/glab.exe" \

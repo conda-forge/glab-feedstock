@@ -17,6 +17,8 @@ build:
   number: 0
   script:
     file: build-glab
+    env:
+      CBC_GO_VERSION: ${{ go_cgo_compiler_version }}
 
 requirements:
   build:
