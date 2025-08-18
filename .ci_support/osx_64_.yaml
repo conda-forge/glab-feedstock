@@ -18,6 +18,8 @@ cxx_compiler:
 - clangxx
 cxx_compiler_version:
 - '19'
+go_cgo_compiler_version:
+- 1.24.6
 macos_machine:
 - x86_64-apple-darwin13.4.0
 target_platform:
