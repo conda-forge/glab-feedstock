@@ -18,6 +18,8 @@ export CGO_CXXFLAGS="${CXXFLAGS}"
 export CGO_LDFLAGS="${LDFLAGS}"
 
 pushd "src/${module}"
+    bash "${RECIPE_DIR}/check-go-version.sh" || exit 2
+
     go build \
         -ldflags "-X main.version=${PKG_VERSION} -X main.debugMode=false -w -s" \
         -o "${PREFIX}/bin/glab" \

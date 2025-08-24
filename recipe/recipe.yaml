@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "1.65.0"
+  version: "1.67.0"
 
 package:
   name: glab
@@ -10,13 +10,15 @@ package:
 
 source:
   url: https://gitlab.com/gitlab-org/cli/-/archive/v${{ version }}/cli-v${{ version }}.tar.gz
-  sha256: 365add832bcdf582d703bf252d9fe1b2a8efe3179b3841e08717fb54c8336352
+  sha256: 7e0c77037ade7d2968b0b791c62fe6012a4296cab5b6aa6ecd86579d57c50e45
   target_directory: src/gitlab.com/gitlab-org/cli
 
 build:
   number: 0
   script:
     file: build-glab
+    env:
+      CBC_GO_VERSION: ${{ go_cgo_compiler_version }}
 
 requirements:
   build:
@@ -25,12 +27,7 @@ requirements:
     - ${{ compiler("go-cgo") }}
     - ${{ stdlib("c") }}
     - go-licenses
-    - if: win
-      then:
-        - m2-make
-        - posix
-      else:
-        - make
+    - make
 
 tests:
   - script:
