@@ -27,12 +27,7 @@ requirements:
     - ${{ compiler("go-cgo") }}
     - ${{ stdlib("c") }}
     - go-licenses
-    - if: win
-      then:
-        - m2-make
-        - posix
-      else:
-        - make
+    - make
 
 tests:
   - script:
