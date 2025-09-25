@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "1.67.0"
+  version: 1.72.0
 
 package:
   name: glab
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://gitlab.com/gitlab-org/cli/-/archive/v${{ version }}/cli-v${{ version }}.tar.gz
-  sha256: 7e0c77037ade7d2968b0b791c62fe6012a4296cab5b6aa6ecd86579d57c50e45
+  sha256: 690490162a7a38490a04be84afffa21e526032c76b466bcb645250596f2bbd5c
   target_directory: src/gitlab.com/gitlab-org/cli
 
 build:
