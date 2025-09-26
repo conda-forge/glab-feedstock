@@ -9,6 +9,6 @@ channel_targets:
 cxx_compiler:
 - vs2022
 go_cgo_compiler_version:
-- 1.24.6
+- 1.25.1
 target_platform:
 - win-64
