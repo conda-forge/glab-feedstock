@@ -1,5 +1,5 @@
 c_stdlib_version:  # [osx]
-  - "11.0"         # [osx]
+  - "12.3"         # [osx]
 go_cgo_compiler_version:
   # `build-glab.sh` compares this against `go.mod#go`
   - "1.25.1"
