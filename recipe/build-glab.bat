@@ -57,6 +57,7 @@ go-licenses save .\cmd\glab --save_path "%SRC_DIR%\license-files" ^
     --ignore=github.com/dop251/goja ^
     --ignore=github.com/golang/freetype/raster ^
     --ignore=github.com/golang/freetype/truetype ^
+    --ignore=github.com/mattn/go-localereader ^
     --ignore=github.com/modern-go/reflect2 ^
     --ignore=go/ast ^
     --ignore=go/build/constraint ^
