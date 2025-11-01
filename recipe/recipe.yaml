@@ -31,6 +31,10 @@ requirements:
 
 tests:
   - script:
+      - if: win
+        then:
+          - set "GLAB_CONFIG_DIR=%CD%\glab-config"
+          - md glab-config
       - glab --version
       - if: unix
         then: glab --help
