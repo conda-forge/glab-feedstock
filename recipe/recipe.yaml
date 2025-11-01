@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "1.74.0"
+  version: "1.75.0"
 
 package:
   name: glab
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://gitlab.com/gitlab-org/cli/-/archive/v${{ version }}/cli-v${{ version }}.tar.gz
-  sha256: b1b8ed3f4c7d8839b540d8a264b3a3ef670e78ae369ef0c01ef5d5e502714905
+  sha256: 17043f121ac40991ffabdf384a9b51b47ef608d379afb399d25c9df1e429bfc3
   target_directory: src/gitlab.com/gitlab-org/cli
 
 build:
@@ -31,6 +31,10 @@ requirements:
 
 tests:
   - script:
+      - if: win
+        then:
+          - set "GLAB_CONFIG_DIR=%CD%\glab-config"
+          - md glab-config
       - glab --version
       - if: unix
         then: glab --help
