@@ -4,13 +4,13 @@ set GOPATH=%SRC_DIR%
 
 cd src/gitlab.com/gitlab-org/cli
 
-START /wait go build ^
+go build ^
     -ldflags "-X main.version=%PKG_VERSION% -X main.debugMode=false -w -s" ^
     -o "%PREFIX%\bin\glab.exe" ^
     .\cmd\glab ^
     || exit 2
 
-START /wait go-licenses save .\cmd\glab --save_path "%SRC_DIR%\license-files" ^
+go-licenses save .\cmd\glab --save_path "%SRC_DIR%\license-files" ^
     --ignore=archive/zip ^
     --ignore=bufio ^
     --ignore=bytes ^
@@ -173,6 +173,10 @@ START /wait go-licenses save .\cmd\glab --save_path "%SRC_DIR%\license-files" ^
     --ignore=vendor/golang.org/x/text/unicode/norm ^
     --ignore=weak ^
     || exit 3
+
+set "GLAB_CONFIG_DIR=%SRC_DIR%\glab-config"
+
+md "%SRC_DIR%\glab-config"
 
 md "%PREFIX%\share\bash-completion\completions"
 "%PREFIX%\bin\%PKG_NAME%" completion -s bash > "%PREFIX%\share\bash-completion\completions\glab"
