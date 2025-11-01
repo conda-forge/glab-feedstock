@@ -4,13 +4,13 @@ set GOPATH=%SRC_DIR%
 
 cd src/gitlab.com/gitlab-org/cli
 
-go build ^
+START /wait go build ^
     -ldflags "-X main.version=%PKG_VERSION% -X main.debugMode=false -w -s" ^
     -o "%PREFIX%\bin\glab.exe" ^
     .\cmd\glab ^
     || exit 2
 
-go-licenses save .\cmd\glab --save_path "%SRC_DIR%\license-files" ^
+START /wait go-licenses save .\cmd\glab --save_path "%SRC_DIR%\license-files" ^
     --ignore=archive/zip ^
     --ignore=bufio ^
     --ignore=bytes ^
