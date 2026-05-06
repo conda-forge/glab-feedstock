@@ -14,7 +14,7 @@ source:
   target_directory: src/gitlab.com/gitlab-org/cli
 
 build:
-  number: 0
+  number: 1
   script:
     file: build-glab
     env:
