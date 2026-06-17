@@ -3,4 +3,4 @@ c_stdlib_version:
     then: "12.3"
 go_cgo_compiler_version:
   # `build-glab.sh` compares this against `go.mod#go`: update and rerender if changed
-  - "1.26.3"
+  - "1.26.4"
