@@ -17,7 +17,7 @@ cxx_compiler_version:
 docker_image:
 - quay.io/condaforge/linux-anvil-aarch64:alma10
 go_cgo_compiler_version:
-- 1.26.4
+- 1.26.5
 target_platform:
 - linux-aarch64
 zip_keys:
