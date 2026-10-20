@@ -15,6 +15,12 @@ source:
 
 build:
   number: 0
+  skip:
+    # segfaults when invoked
+    #   runtime.(*pageAlloc).find.func1({0x0?}, 0x103197f00)
+    #   runtime/mpagealloc.go:723 +0xec fp=0x100000ffb9f0 sp=0x100000ffb9a8 pc=0x10055272c
+    # see https://github.com/conda-forge/glab-feedstock/issues/141
+    - target_platform == "linux-ppc64le"
   script:
     file: build-glab
 
